@@ -185,11 +185,7 @@
     .line 34
     iget-object p0, p0, Lcom/citnow/file_management/session/SessionFolderManagerImpl$listAllSessions$2;->this$0:Lcom/citnow/file_management/session/SessionFolderManagerImpl;
 
-    invoke-virtual {p0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
+    invoke-direct {p0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
 
     move-result-object p0
 

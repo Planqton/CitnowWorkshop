@@ -224,11 +224,7 @@
 
     iget-object v0, p0, Lcom/citnow/file_management/session/SessionFolderManagerImpl$migrateOldSessions$2;->this$0:Lcom/citnow/file_management/session/SessionFolderManagerImpl;
 
-    invoke-virtual {v0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
+    invoke-direct {v0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
 
     move-result-object v0
 
@@ -279,11 +275,7 @@
     :cond_1
     iget-object v0, p0, Lcom/citnow/file_management/session/SessionFolderManagerImpl$migrateOldSessions$2;->this$0:Lcom/citnow/file_management/session/SessionFolderManagerImpl;
 
-    invoke-virtual {v0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
+    invoke-direct {v0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
 
     move-result-object v0
 
