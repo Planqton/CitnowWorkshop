@@ -122,7 +122,7 @@
     return-void
 .end method
 
-.method private final baseMediaDir()Ljava/io/File;
+.method public final baseMediaDir()Ljava/io/File;
     .locals 3
 
     iget-object v0, p0, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->context:Landroid/content/Context;
@@ -433,7 +433,7 @@
 
     .line 90
     new-instance v0, Ljava/io/File;
-    invoke-direct {p0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
+    invoke-virtual {p0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
 
     move-result-object v1
 
@@ -476,7 +476,7 @@
     .line 20
     new-instance v0, Ljava/io/File;
 
-    invoke-direct {p0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
+    invoke-virtual {p0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
 
     move-result-object v1
 
@@ -533,7 +533,7 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 107
-    invoke-direct {p0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
+    invoke-virtual {p0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
 
     move-result-object p0
 
@@ -744,7 +744,7 @@
     .line 99
     new-instance v0, Ljava/io/File;
 
-    invoke-direct {p0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
+    invoke-virtual {p0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
 
     move-result-object p0
 
@@ -794,7 +794,7 @@
 
     new-instance v1, Ljava/io/File;
 
-    invoke-direct {p0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
+    invoke-virtual {p0}, Lcom/citnow/file_management/session/SessionFolderManagerImpl;->baseMediaDir()Ljava/io/File;
 
     move-result-object v2
 
