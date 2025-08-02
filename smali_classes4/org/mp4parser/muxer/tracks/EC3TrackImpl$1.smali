@@ -1,0 +1,142 @@
+.class Lorg/mp4parser/muxer/tracks/EC3TrackImpl$1;
+.super Ljava/lang/Object;
+.source "EC3TrackImpl.java"
+
+# interfaces
+.implements Lorg/mp4parser/muxer/Sample;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lorg/mp4parser/muxer/tracks/EC3TrackImpl;->readSamples()Ljava/util/List;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lorg/mp4parser/muxer/tracks/EC3TrackImpl;
+
+.field final synthetic val$start:I
+
+
+# direct methods
+.method constructor <init>(Lorg/mp4parser/muxer/tracks/EC3TrackImpl;I)V
+    .locals 0
+
+    .line 387
+    iput-object p1, p0, Lorg/mp4parser/muxer/tracks/EC3TrackImpl$1;->this$0:Lorg/mp4parser/muxer/tracks/EC3TrackImpl;
+
+    iput p2, p0, Lorg/mp4parser/muxer/tracks/EC3TrackImpl$1;->val$start:I
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public asByteBuffer()Ljava/nio/ByteBuffer;
+    .locals 5
+
+    .line 398
+    :try_start_0
+    iget-object v0, p0, Lorg/mp4parser/muxer/tracks/EC3TrackImpl$1;->this$0:Lorg/mp4parser/muxer/tracks/EC3TrackImpl;
+
+    invoke-static {v0}, Lorg/mp4parser/muxer/tracks/EC3TrackImpl;->access$100(Lorg/mp4parser/muxer/tracks/EC3TrackImpl;)Lorg/mp4parser/muxer/DataSource;
+
+    move-result-object v0
+
+    iget v1, p0, Lorg/mp4parser/muxer/tracks/EC3TrackImpl$1;->val$start:I
+
+    int-to-long v1, v1
+
+    iget-object p0, p0, Lorg/mp4parser/muxer/tracks/EC3TrackImpl$1;->this$0:Lorg/mp4parser/muxer/tracks/EC3TrackImpl;
+
+    invoke-static {p0}, Lorg/mp4parser/muxer/tracks/EC3TrackImpl;->access$000(Lorg/mp4parser/muxer/tracks/EC3TrackImpl;)I
+
+    move-result p0
+
+    int-to-long v3, p0
+
+    invoke-interface {v0, v1, v2, v3, v4}, Lorg/mp4parser/muxer/DataSource;->map(JJ)Ljava/nio/ByteBuffer;
+
+    move-result-object p0
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object p0
+
+    :catch_0
+    move-exception p0
+
+    .line 400
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v0
+.end method
+
+.method public getSampleEntry()Lorg/mp4parser/boxes/sampleentry/SampleEntry;
+    .locals 0
+
+    .line 406
+    iget-object p0, p0, Lorg/mp4parser/muxer/tracks/EC3TrackImpl$1;->this$0:Lorg/mp4parser/muxer/tracks/EC3TrackImpl;
+
+    iget-object p0, p0, Lorg/mp4parser/muxer/tracks/EC3TrackImpl;->audioSampleEntry:Lorg/mp4parser/boxes/sampleentry/AudioSampleEntry;
+
+    return-object p0
+.end method
+
+.method public getSize()J
+    .locals 2
+
+    .line 393
+    iget-object p0, p0, Lorg/mp4parser/muxer/tracks/EC3TrackImpl$1;->this$0:Lorg/mp4parser/muxer/tracks/EC3TrackImpl;
+
+    invoke-static {p0}, Lorg/mp4parser/muxer/tracks/EC3TrackImpl;->access$000(Lorg/mp4parser/muxer/tracks/EC3TrackImpl;)I
+
+    move-result p0
+
+    int-to-long v0, p0
+
+    return-wide v0
+.end method
+
+.method public writeTo(Ljava/nio/channels/WritableByteChannel;)V
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 389
+    iget-object v0, p0, Lorg/mp4parser/muxer/tracks/EC3TrackImpl$1;->this$0:Lorg/mp4parser/muxer/tracks/EC3TrackImpl;
+
+    invoke-static {v0}, Lorg/mp4parser/muxer/tracks/EC3TrackImpl;->access$100(Lorg/mp4parser/muxer/tracks/EC3TrackImpl;)Lorg/mp4parser/muxer/DataSource;
+
+    move-result-object v1
+
+    iget v0, p0, Lorg/mp4parser/muxer/tracks/EC3TrackImpl$1;->val$start:I
+
+    int-to-long v2, v0
+
+    iget-object p0, p0, Lorg/mp4parser/muxer/tracks/EC3TrackImpl$1;->this$0:Lorg/mp4parser/muxer/tracks/EC3TrackImpl;
+
+    invoke-static {p0}, Lorg/mp4parser/muxer/tracks/EC3TrackImpl;->access$000(Lorg/mp4parser/muxer/tracks/EC3TrackImpl;)I
+
+    move-result p0
+
+    int-to-long v4, p0
+
+    move-object v6, p1
+
+    invoke-interface/range {v1 .. v6}, Lorg/mp4parser/muxer/DataSource;->transferTo(JJLjava/nio/channels/WritableByteChannel;)J
+
+    return-void
+.end method

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.App.Starting" parent="@style/Theme.SplashScreen">
+        <item name="android:statusBarColor">@color/app_main</item>
+        <item name="android:navigationBarColor">@color/app_main</item>
+        <item name="android:windowSplashScreenBehavior">icon_preferred</item>
+        <item name="postSplashScreenTheme">@style/Theme.MainTheme</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_icon</item>
+        <item name="windowSplashScreenBackground">@color/app_main</item>
+    </style>
+</resources>

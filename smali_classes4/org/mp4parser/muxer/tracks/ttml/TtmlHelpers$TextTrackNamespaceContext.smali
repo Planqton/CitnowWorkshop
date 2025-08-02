@@ -1,0 +1,146 @@
+.class Lorg/mp4parser/muxer/tracks/ttml/TtmlHelpers$TextTrackNamespaceContext;
+.super Ljava/lang/Object;
+.source "TtmlHelpers.java"
+
+# interfaces
+.implements Ljavax/xml/namespace/NamespaceContext;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lorg/mp4parser/muxer/tracks/ttml/TtmlHelpers;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "TextTrackNamespaceContext"
+.end annotation
+
+
+# direct methods
+.method private constructor <init>()V
+    .locals 0
+
+    .line 225
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lorg/mp4parser/muxer/tracks/ttml/TtmlHelpers$1;)V
+    .locals 0
+
+    .line 225
+    invoke-direct {p0}, Lorg/mp4parser/muxer/tracks/ttml/TtmlHelpers$TextTrackNamespaceContext;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getNamespaceURI(Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    .line 229
+    const-string p0, "ttml"
+
+    invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    .line 230
+    const-string p0, "http://www.w3.org/ns/ttml"
+
+    return-object p0
+
+    .line 232
+    :cond_0
+    const-string p0, "smpte"
+
+    invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    .line 233
+    const-string p0, "http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt"
+
+    return-object p0
+
+    :cond_1
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public getPrefix(Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    .line 243
+    const-string p0, "http://www.w3.org/ns/ttml"
+
+    invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    .line 244
+    const-string p0, "ttml"
+
+    return-object p0
+
+    .line 246
+    :cond_0
+    const-string p0, "http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt"
+
+    invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    .line 247
+    const-string p0, "smpte"
+
+    return-object p0
+
+    :cond_1
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public getPrefixes(Ljava/lang/String;)Ljava/util/Iterator;
+    .locals 1
+
+    const/4 p0, 0x2
+
+    .line 239
+    new-array p0, p0, [Ljava/lang/String;
+
+    const/4 p1, 0x0
+
+    const-string v0, "ttml"
+
+    aput-object v0, p0, p1
+
+    const/4 p1, 0x1
+
+    const-string v0, "smpte"
+
+    aput-object v0, p0, p1
+
+    invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    return-object p0
+.end method
