@@ -69,6 +69,23 @@
     new-instance v2, Lcom/citnow/android_refactored/settings_view/CopyRoomPassphraseCallback;
     invoke-direct {v2, v0}, Lcom/citnow/android_refactored/settings_view/CopyRoomPassphraseCallback;-><init>(Landroid/content/Context;)V
     invoke-static {v1, v4, v2, p1, v3}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingInfoItem(Ljava/lang/String;ZLkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
+    const-string v1, "citNow-prefs"
+    const/4 v4, 0x0
+    invoke-virtual {v0, v1, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    move-result-object v1
+    const-string v4, "citNow-room-pass-phrase"
+    const-string v5, ""
+    invoke-interface {v1, v4, v5}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
+    sget-object v4, Lkotlin/text/Charsets;->ISO_8859_1:Ljava/nio/charset/Charset;
+    invoke-virtual {v1, v4}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+    move-result-object v1
+    const-string v4, "getBytes(...)"
+    invoke-static {v1, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/citnow/ExtensionsKt;->toHex([B)Ljava/lang/String;
+    move-result-object v1
+    const/4 v4, 0x0
+    invoke-static {v1, v4, v2, p1, v3}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingInfoItem(Ljava/lang/String;ZLkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
     const-string v1, "Button 3"
     sget-object v2, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7$1;->INSTANCE:Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7$1;
     const/4 v4, 0x0
