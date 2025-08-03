@@ -65,8 +65,9 @@
     const/16 v3, 0x30
     const/4 v4, 0x1
     invoke-static {v1, v4, v2, p1, v3}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingInfoItem(Ljava/lang/String;ZLkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
-    const-string v1, "Button 2"
-    sget-object v2, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7$1;->INSTANCE:Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7$1;
+    const-string v1, "Copy DB Key"
+    new-instance v2, Lcom/citnow/android_refactored/settings_view/CopyRoomPassphraseCallback;
+    invoke-direct {v2, v0}, Lcom/citnow/android_refactored/settings_view/CopyRoomPassphraseCallback;-><init>(Landroid/content/Context;)V
     invoke-static {v1, v4, v2, p1, v3}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingInfoItem(Ljava/lang/String;ZLkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
     const-string v1, "Button 3"
     sget-object v2, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7$1;->INSTANCE:Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7$1;
