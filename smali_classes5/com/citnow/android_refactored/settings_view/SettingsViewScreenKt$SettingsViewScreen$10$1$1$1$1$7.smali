@@ -71,7 +71,7 @@
 .end method
 
 .method public final invoke(Landroidx/compose/runtime/Composer;I)V
-    .locals 11
+    .locals 12
     invoke-static {}, Landroidx/compose/ui/platform/AndroidCompositionLocals_androidKt;->getLocalContext()Landroidx/compose/runtime/ProvidableCompositionLocal;
     move-result-object v0
     check-cast v0, Landroidx/compose/runtime/CompositionLocal;
@@ -138,9 +138,17 @@
 
     const/4 v9, 0x0
 
-    const/16 v10, 0x180
+    move-object v5, v8
 
-    invoke-static {v6, v7, v9, v8, p1, v10}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingToggleItem(Ljava/lang/String;ZZLkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)V
+    move v8, v9
+
+    move-object v9, v5
+
+    move-object v10, p1
+
+    const/16 v11, 0x180
+
+    invoke-static/range {v6 .. v11}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingToggleItem(Ljava/lang/String;ZZLkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)V
 
     return-void
 .end method
