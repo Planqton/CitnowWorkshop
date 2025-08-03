@@ -415,6 +415,7 @@
 
     invoke-static {p1, v0, p2, v1}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingsCategory(Ljava/lang/String;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
 
+
     const p1, 0x7f120184
 
     .line 211
@@ -422,21 +423,21 @@
 
     move-result-object p1
 
-    new-instance p3, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$6;
+    new-instance v4, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$6;
 
-    iget-object p0, p0, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1;->$navigator:Lcom/ramcosta/composedestinations/navigation/DestinationsNavigator;
+    iget-object v5, p0, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1;->$navigator:Lcom/ramcosta/composedestinations/navigation/DestinationsNavigator;
 
-    invoke-direct {p3, p0}, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$6;-><init>(Lcom/ramcosta/composedestinations/navigation/DestinationsNavigator;)V
+    invoke-direct {v4, v5}, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$6;-><init>(Lcom/ramcosta/composedestinations/navigation/DestinationsNavigator;)V
 
-    const p0, -0x15b1306f
+    const v5, -0x15b1306f
 
-    invoke-static {p0, v2, p3, p2, v3}, Landroidx/compose/runtime/internal/ComposableLambdaKt;->rememberComposableLambda(IZLjava/lang/Object;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/internal/ComposableLambda;
+    invoke-static {v5, v2, v4, p2, v3}, Landroidx/compose/runtime/internal/ComposableLambdaKt;->rememberComposableLambda(IZLjava/lang/Object;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/internal/ComposableLambda;
 
-    move-result-object p0
+    move-result-object v4
 
-    check-cast p0, Lkotlin/jvm/functions/Function2;
+    check-cast v4, Lkotlin/jvm/functions/Function2;
 
-    invoke-static {p1, p0, p2, v1}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingsCategory(Ljava/lang/String;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+    invoke-static {p1, v4, p2, v1}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingsCategory(Ljava/lang/String;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
 
     const-string p1, "Mod Menu"
 
@@ -450,12 +451,11 @@
 
     invoke-static {v4, v2, v5, p2, v3}, Landroidx/compose/runtime/internal/ComposableLambdaKt;->rememberComposableLambda(IZLjava/lang/Object;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/internal/ComposableLambda;
 
-    move-result-object p0
+    move-result-object v4
 
-    check-cast p0, Lkotlin/jvm/functions/Function2;
+    check-cast v4, Lkotlin/jvm/functions/Function2;
 
-    invoke-static {p1, p0, p2, v1}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingsCategory(Ljava/lang/String;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
-
+    invoke-static {p1, v4, p2, v1}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingsCategory(Ljava/lang/String;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
     invoke-static {}, Landroidx/compose/runtime/ComposerKt;->isTraceInProgress()Z
 
     move-result p0
