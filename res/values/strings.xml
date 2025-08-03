@@ -815,4 +815,8 @@
     <string name="yes">Yes</string>
     <string name="yesterday">Yesterday</string>
     <string name="yourIncompleteSessions">Your incomplete sessions.</string>
+    <string name="mod_menu">Mod Menu</string>
+    <string name="mod_button_1">Button 1</string>
+    <string name="mod_button_2">Button 2</string>
+    <string name="mod_button_3">Button 3</string>
 </resources>

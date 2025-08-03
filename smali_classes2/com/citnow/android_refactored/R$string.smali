@@ -1112,6 +1112,14 @@
 
 .field public static final yourIncompleteSessions:I = 0x7f12032f
 
+.field public static final mod_menu:I = 0x7f120330
+
+.field public static final mod_button_1:I = 0x7f120331
+
+.field public static final mod_button_2:I = 0x7f120332
+
+.field public static final mod_button_3:I = 0x7f120333
+
 
 # direct methods
 .method private constructor <init>()V
