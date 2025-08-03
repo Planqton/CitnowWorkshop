@@ -99,6 +99,8 @@
 # static fields
 .field public static final $stable:I = 0x8
 
+.field private static final RECORDER_COUNTDOWN_KEY:Ljava/lang/String; = "recorder_countdown_enabled"
+
 
 # instance fields
 .field private final _connectivityStatus:Lkotlinx/coroutines/flow/MutableStateFlow;
@@ -453,8 +455,7 @@
 
     iput-object p2, p0, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->isSettingShutter:Lkotlinx/coroutines/flow/StateFlow;
 
-    const-string p2, "recorder_countdown_enabled"
-
+    sget-object p2, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->RECORDER_COUNTDOWN_KEY:Ljava/lang/String;
     invoke-direct {p0, p2}, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->getSetting(Ljava/lang/String;)Z
 
     move-result p2
@@ -1619,7 +1620,7 @@
 
     iget-object p0, p0, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->dataStore:Lcom/citnow/data/CitNowDataStore;
 
-    const-string v0, "recorder_countdown_enabled"
+    sget-object v0, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->RECORDER_COUNTDOWN_KEY:Ljava/lang/String;
 
     invoke-interface {p0, v0, p1}, Lcom/citnow/data/CitNowDataStore;->saveSetting(Ljava/lang/String;Z)V
 
