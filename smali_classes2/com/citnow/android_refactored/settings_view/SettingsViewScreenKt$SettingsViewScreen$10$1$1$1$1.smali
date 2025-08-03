@@ -438,12 +438,7 @@
 
     invoke-static {p1, p0, p2, v1}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingsCategory(Ljava/lang/String;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
 
-    const p1, 0x7f120330
-
-    .line 216
-    invoke-static {p1, p2, p3}, Landroidx/compose/ui/res/StringResources_androidKt;->stringResource(ILandroidx/compose/runtime/Composer;I)Ljava/lang/String;
-
-    move-result-object p1
+    const-string p1, "Mod Menu"
 
     new-instance p0, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7;
 
