@@ -27,18 +27,16 @@
 .method public final invoke()V
     .locals 8
     iget-object v0, p0, Lcom/citnow/android_refactored/settings_view/ExportSharedPrefsCallback;->context:Landroid/content/Context;
-    invoke-virtual {v0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+    const-string v1, "citNow-prefs"
+    const/4 v2, 0x0
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
     move-result-object v1
-    iget-object v1, v1, Landroid/content/pm/ApplicationInfo;->dataDir:Ljava/lang/String;
-    const-string v2, "shared_prefs/citNow-prefs.xml"
-    new-instance v3, Ljava/io/File;
-    invoke-direct {v3, v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
     invoke-virtual {v0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
-    move-result-object v1
-    const-string v2, "citNow-prefs.xml"
+    move-result-object v2
+    const-string v3, "citNow-prefs.xml"
     new-instance v4, Ljava/io/File;
-    invoke-direct {v4, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-    invoke-static {v3, v4}, Lcom/citnow/android_refactored/settings_view/ExportSharedPrefsCallback;->copy(Ljava/io/File;Ljava/io/File;)V
+    invoke-direct {v4, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-static {v1, v4}, Lcom/citnow/android_refactored/settings_view/ExportSharedPrefsCallback;->writeXml(Landroid/content/SharedPreferences;Ljava/io/File;)V
     const-string v1, "com.zype.aftersales.release.multilingual.WorkshopPublic.provider"
     invoke-static {v0, v1, v4}, Landroidx/core/content/FileProvider;->getUriForFile(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;)Landroid/net/Uri;
     move-result-object v1
@@ -59,35 +57,54 @@
 .end method
 
 # helper methods
-.method private static copy(Ljava/io/File;Ljava/io/File;)V
-    .locals 6
-
-    new-instance v0, Ljava/io/FileInputStream;
-    invoke-direct {v0, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-
-    new-instance v1, Ljava/io/FileOutputStream;
-    const/4 v2, 0x0
-    invoke-direct {v1, p1, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;Z)V
-
-    invoke-virtual {v1}, Ljava/io/FileOutputStream;->getChannel()Ljava/nio/channels/FileChannel;
+.method private static writeXml(Landroid/content/SharedPreferences;Ljava/io/File;)V
+    .locals 9
+    invoke-interface {p0}, Landroid/content/SharedPreferences;->getAll()Ljava/util/Map;
+    move-result-object v0
+    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "<map>\n"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    move-result-object v0
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    move-result-object v0
+    :loop
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    move-result v2
+    if-eqz v2, :end
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
     move-result-object v2
-
-    invoke-virtual {v0}, Ljava/io/FileInputStream;->getChannel()Ljava/nio/channels/FileChannel;
+    check-cast v2, Ljava/util/Map$Entry;
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
     move-result-object v3
-
-    invoke-virtual {v3}, Ljava/nio/channels/FileChannel;->size()J
-    move-result-wide p0
-
-    const-wide/16 v4, 0x0
-
-    invoke-virtual/range {v2 .. p1}, Ljava/nio/channels/FileChannel;->transferFrom(Ljava/nio/channels/ReadableByteChannel;JJ)J
-
-    invoke-interface {v3}, Ljava/nio/channels/Channel;->close()V
-    invoke-interface {v2}, Ljava/nio/channels/Channel;->close()V
-
-    invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
-    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
-
+    check-cast v3, Ljava/lang/String;
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    move-result-object v2
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v2
+    const-string v4, "  <string name=\""
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, "\">"
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, "</string>\n"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto :loop
+    :end
+    const-string v0, "</map>\n"
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/io/FileOutputStream;
+    const/4 v2, 0x0
+    invoke-direct {v0, p1, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;Z)V
+    const-string v2, "UTF-8"
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
+    invoke-virtual {v1, v2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/io/FileOutputStream;->write([B)V
+    invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
     return-void
 .end method
 
