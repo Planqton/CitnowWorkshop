@@ -35,6 +35,13 @@
     const-string v2, ""
     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     move-result-object v0
+    sget-object v1, Lkotlin/text/Charsets;->ISO_8859_1:Ljava/nio/charset/Charset;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+    move-result-object v0
+    const-string v1, "getBytes(...)"
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/citnow/ExtensionsKt;->toHex([B)Ljava/lang/String;
+    move-result-object v0
     iget-object v1, p0, Lcom/citnow/android_refactored/settings_view/CopyRoomPassphraseCallback;->context:Landroid/content/Context;
     const-string v2, "clipboard"
     invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
