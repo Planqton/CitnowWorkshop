@@ -296,7 +296,7 @@
 .end method
 
 .method public constructor <init>(Lcom/citnow/data/CitNowDataStore;Lcom/citnow/data/ApplicationInformation;Lcom/citnow/data/DeviceInformation;Lcom/citnow/data/FactoryReset;Lcom/citnow/gateway/configuration/ConfigurationManager;Lcom/citnow/network/ConnectionStatus;)V
-    .locals 1
+    .locals 3
     .annotation runtime Ljavax/inject/Inject;
     .end annotation
 
@@ -455,12 +455,28 @@
 
     iput-object p2, p0, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->isSettingShutter:Lkotlinx/coroutines/flow/StateFlow;
 
-    sget-object p2, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->RECORDER_COUNTDOWN_KEY:Ljava/lang/String;
-    invoke-direct {p0, p2}, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->getSetting(Ljava/lang/String;)Z
+    sget-object v0, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->RECORDER_COUNTDOWN_KEY:Ljava/lang/String;
 
-    move-result p2
+    invoke-direct {p0, v0}, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->getSetting(Ljava/lang/String;)Z
 
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iget-object v2, p0, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->dataStore:Lcom/citnow/data/CitNowDataStore;
+
+    const-string p2, "false"
+
+    invoke-interface {v2, v0, p2}, Lcom/citnow/data/CitNowDataStore;->getCustomPreference(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v1
+
+    :cond_0
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p2
 
