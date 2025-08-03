@@ -440,13 +440,15 @@
 
     const-string p1, "Mod Menu"
 
-    new-instance p0, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7;
+    iget-object v4, p0, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1;->$viewModel:Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;
 
-    invoke-direct {p0}, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7;-><init>()V
+    new-instance v5, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7;
+
+    invoke-direct {v5, v4}, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7;-><init>(Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;)V
 
     const v4, 0x12345678
 
-    invoke-static {v4, v2, p0, p2, v3}, Landroidx/compose/runtime/internal/ComposableLambdaKt;->rememberComposableLambda(IZLjava/lang/Object;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/internal/ComposableLambda;
+    invoke-static {v4, v2, v5, p2, v3}, Landroidx/compose/runtime/internal/ComposableLambdaKt;->rememberComposableLambda(IZLjava/lang/Object;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/internal/ComposableLambda;
 
     move-result-object p0
 
