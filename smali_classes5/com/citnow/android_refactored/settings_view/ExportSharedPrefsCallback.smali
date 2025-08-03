@@ -61,23 +61,33 @@
 # helper methods
 .method private static copy(Ljava/io/File;Ljava/io/File;)V
     .locals 6
+
     new-instance v0, Ljava/io/FileInputStream;
     invoke-direct {v0, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
     new-instance v1, Ljava/io/FileOutputStream;
     const/4 v2, 0x0
     invoke-direct {v1, p1, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;Z)V
-    invoke-virtual {v0}, Ljava/io/FileInputStream;->getChannel()Ljava/nio/channels/FileChannel;
-    move-result-object p0
+
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->getChannel()Ljava/nio/channels/FileChannel;
-    move-result-object p1
-    invoke-virtual {p0}, Ljava/nio/channels/FileChannel;->size()J
-    move-result-wide v2
+    move-result-object v2
+
+    invoke-virtual {v0}, Ljava/io/FileInputStream;->getChannel()Ljava/nio/channels/FileChannel;
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/nio/channels/FileChannel;->size()J
+    move-result-wide p0
+
     const-wide/16 v4, 0x0
-    invoke-virtual {p1, p0, v4, v2}, Ljava/nio/channels/FileChannel;->transferFrom(Ljava/nio/channels/ReadableByteChannel;JJ)J
-    invoke-interface {p0}, Ljava/nio/channels/Channel;->close()V
-    invoke-interface {p1}, Ljava/nio/channels/Channel;->close()V
+
+    invoke-virtual/range {v2 .. p1}, Ljava/nio/channels/FileChannel;->transferFrom(Ljava/nio/channels/ReadableByteChannel;JJ)J
+
+    invoke-interface {v3}, Ljava/nio/channels/Channel;->close()V
+    invoke-interface {v2}, Ljava/nio/channels/Channel;->close()V
+
     invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+
     return-void
 .end method
 
