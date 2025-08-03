@@ -112,7 +112,7 @@
 
     iget-object v6, p0, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7;->$viewModel:Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;
 
-    invoke-virtual {v6}, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->isRecorderCountdown()Lkotlinx/coroutines/flow/StateFlow;
+    invoke-virtual {v6}, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->isRecorderCountdownEnabled()Lkotlinx/coroutines/flow/StateFlow;
 
     move-result-object v7
 

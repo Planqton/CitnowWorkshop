@@ -453,7 +453,7 @@
 
     iput-object p2, p0, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->isSettingShutter:Lkotlinx/coroutines/flow/StateFlow;
 
-    const-string p2, "SettingRecorderCountdown"
+    const-string p2, "recorder_countdown_enabled"
 
     invoke-direct {p0, p2}, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->getSetting(Ljava/lang/String;)Z
 
@@ -1235,7 +1235,7 @@
     return-object p0
 .end method
 
-.method public final isRecorderCountdown()Lkotlinx/coroutines/flow/StateFlow;
+.method public final isRecorderCountdownEnabled()Lkotlinx/coroutines/flow/StateFlow;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1619,7 +1619,7 @@
 
     iget-object p0, p0, Lcom/citnow/android_refactored/settings_view/SettingsViewViewModel;->dataStore:Lcom/citnow/data/CitNowDataStore;
 
-    const-string v0, "SettingRecorderCountdown"
+    const-string v0, "recorder_countdown_enabled"
 
     invoke-interface {p0, v0, p1}, Lcom/citnow/data/CitNowDataStore;->saveSetting(Ljava/lang/String;Z)V
 
