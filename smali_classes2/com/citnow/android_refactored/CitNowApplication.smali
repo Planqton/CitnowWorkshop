@@ -53,21 +53,47 @@
 
 # virtual methods
 .method public onCreate()V
-    .locals 1
+    .locals 3
 
     .line 11
     invoke-super {p0}, Lcom/citnow/android_refactored/Hilt_CitNowApplication;->onCreate()V
 
     .line 12
-    sget-object p0, Ltimber/log/Timber;->Forest:Ltimber/log/Timber$Forest;
+    sget-object v0, Ltimber/log/Timber;->Forest:Ltimber/log/Timber$Forest;
 
-    new-instance v0, Ltimber/log/Timber$DebugTree;
+    new-instance v1, Ltimber/log/Timber$DebugTree;
 
-    invoke-direct {v0}, Ltimber/log/Timber$DebugTree;-><init>()V
+    invoke-direct {v1}, Ltimber/log/Timber$DebugTree;-><init>()V
 
-    check-cast v0, Ltimber/log/Timber$Tree;
+    check-cast v1, Ltimber/log/Timber$Tree;
 
-    invoke-virtual {p0, v0}, Ltimber/log/Timber$Forest;->plant(Ltimber/log/Timber$Tree;)V
+    invoke-virtual {v0, v1}, Ltimber/log/Timber$Forest;->plant(Ltimber/log/Timber$Tree;)V
+
+    sget-object v0, Lcom/citnow/di/DataModule;->INSTANCE:Lcom/citnow/di/DataModule;
+
+    invoke-virtual {v0, p0}, Lcom/citnow/di/DataModule;->provideSharedPreference(Landroid/content/Context;)Landroid/content/SharedPreferences;
+
+    move-result-object v0
+
+    const-string v1, "citNow-room-pass-phrase"
+
+    const-string v2, ""
+
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string v2, "citNow-room-pass-phrase: %s"
+
+    invoke-static {v2, v0}, Ltimber/log/Timber;->d(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 .end method
