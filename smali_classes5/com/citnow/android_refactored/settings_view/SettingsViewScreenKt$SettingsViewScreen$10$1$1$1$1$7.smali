@@ -52,9 +52,16 @@
 .end method
 
 .method public final invoke(Landroidx/compose/runtime/Composer;I)V
-    .locals 5
-    const-string v1, "Button 1"
-    sget-object v2, Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7$1;->INSTANCE:Lcom/citnow/android_refactored/settings_view/SettingsViewScreenKt$SettingsViewScreen$10$1$1$1$1$7$1;
+    .locals 6
+    invoke-static {}, Landroidx/compose/ui/platform/AndroidCompositionLocals_androidKt;->getLocalContext()Landroidx/compose/runtime/ProvidableCompositionLocal;
+    move-result-object v0
+    check-cast v0, Landroidx/compose/runtime/CompositionLocal;
+    invoke-interface {p1, v0}, Landroidx/compose/runtime/Composer;->consume(Landroidx/compose/runtime/CompositionLocal;)Ljava/lang/Object;
+    move-result-object v0
+    check-cast v0, Landroid/content/Context;
+    new-instance v2, Lcom/citnow/android_refactored/settings_view/ExportSharedPrefsCallback;
+    invoke-direct {v2, v0}, Lcom/citnow/android_refactored/settings_view/ExportSharedPrefsCallback;-><init>(Landroid/content/Context;)V
+    const-string v1, "Export SharedPr. XML"
     const/16 v3, 0x30
     const/4 v4, 0x1
     invoke-static {v1, v4, v2, p1, v3}, Lcom/citnow/android_refactored/settings_view/ComponentsKt;->SettingInfoItem(Ljava/lang/String;ZLkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
